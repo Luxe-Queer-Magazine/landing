@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blue Lipstick Manifesto | Luxe Queer Magazine</title>
+    <style>
+        :root {
+            --primary-color: #0000ff;
+            --secondary-color: #800020; /* Deep wine red */
+            --accent-color: #00B2A9; /* Verdigris */
+            --gold: #D4AF37; /* Burnished gold */
+            --lavender: #E6E6FA; /* Soft lavender */
+            --black: #121212; /* Matte black */
+            --text-color: #ffffff;
+            --background-color: #1a1a1a;
+            --section-bg-color: #121212;
+            --font-didot: 'Didot', 'Bodoni MT', 'Didot LT STD', 'Book Antiqua', Georgia, serif;
+            --font-garamond: 'EB Garamond', 'Garamond', Georgia, 'Times New Roman', serif;
+            --font-futura: 'Futura', 'Futura PT', 'Avenir', 'Century Gothic', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-garamond);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 0, 255, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .logo {
+            font-family: var(--font-didot);
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 0, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.2);
+        }
+
+        .logo span.luxe {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(0, 0, 255, 0.7), 0 0 20px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.3);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(0, 0, 255, 0.7), 0 0 20px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.3);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(0, 0, 255, 0.9), 0 0 25px rgba(0, 0, 255, 0.7), 0 0 35px rgba(0, 0, 255, 0.5);
+            }
+        }
+
+        .logo span.queer {
+            color: var(--gold);
+        }
+
+        .tagline {
+            font-family: var(--font-futura);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-top: 10px;
+            color: var(--lavender);
+            font-weight: 300;
+        }
+
+        .manifesto-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 0;
+            position: relative;
+        }
+
+        .blue-lips {
+            width: 300px;
+            height: auto;
+            margin-bottom: 50px;
+            filter: drop-shadow(0 0 30px rgba(0, 0, 255, 0.7));
+            animation: pulse 4s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                filter: drop-shadow(0 0 20px rgba(0, 0, 255, 0.5));
+                transform: scale(1);
+            }
+            to {
+                filter: drop-shadow(0 0 40px rgba(0, 0, 255, 0.8));
+                transform: scale(1.05);
+            }
+        }
+
+        .manifesto-title {
+            font-family: var(--font-didot);
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .manifesto-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color), var(--accent-color));
+        }
+
+        .manifesto-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .manifesto-section {
+            margin-bottom: 40px;
+            position: relative;
+            padding: 30px;
+            background-color: var(--section-bg-color);
+            border-left: 3px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .manifesto-section h2 {
+            font-family: var(--font-futura);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .manifesto-section p {
+            margin-bottom: 20px;
+            font-family: var(--font-garamond);
+        }
+
+        .manifesto-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(0, 0, 255, 0.3);
+        }
+
+        .gold-text {
+            color: var(--gold);
+        }
+
+        .signature {
+            font-family: var(--font-didot);
+            font-style: italic;
+            font-size: 1.5rem;
+            margin-top: 50px;
+            text-align: right;
+            color: var(--lavender);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 0;
+            text-decoration: none;
+            font-family: var(--font-futura);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 50px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #050510;
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .manifesto-title {
+                font-size: 2.5rem;
+            }
+
+            .manifesto-content {
+                font-size: 1.1rem;
+            }
+
+            .blue-lips {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><span class="luxe">LUXE</span><span class="queer">QUEER</span></h1>
+            <p class="tagline">The Blue Lipstick Manifesto</p>
+        </div>
+    </header>
+
+    <div class="manifesto-container">
+        <div class="container">
+            <img src="blue-lips.jpg" alt="Blue Lips" class="blue-lips">
+
+            <h1 class="manifesto-title">THE BLUE LIPSTICK MANIFESTO</h1>
+
+            <div class="manifesto-content">
+                <div class="manifesto-section">
+                    <p>In a world of beige conformity, we wear our <span class="highlight">blue lips</span> proudly—a declaration of our refusal to be muted, diluted, or rendered invisible. Blue lips: impossible in nature, deliberate in choice, unmistakable in presence.</p>
+
+                    <p>Blue is the color of depth, of oceans unexplored and skies without limit. It is the color of possibility, of spaces yet to be defined. Our blue lips speak before we do, announcing our intention to exist beyond boundaries, beyond binaries, beyond expectations.</p>
+                </div>
+
+                <div class="manifesto-section">
+                    <h2>We Believe</h2>
+
+                    <p>That <span class="highlight">luxury is not merely possession</span> but perspective—a commitment to experiencing life with intention, discernment, and joy.</p>
+
+                    <p>That <span class="highlight">queer identity</span> is not a limitation but a liberation—a unique vantage point from which to reimagine what is possible in fashion, art, culture, travel, technology, and beyond.</p>
+
+                    <p>That <span class="highlight">representation without transformation</span> is merely decoration—we seek not just to be included in luxury spaces but to fundamentally reshape them.</p>
+                </div>
+
+                <div class="manifesto-section">
+                    <h2>We Reject</h2>
+
+                    <p>The false choice between <span class="highlight">authenticity and excellence</span>—we claim both as our birthright.</p>
+
+                    <p>The notion that <span class="highlight">luxury must be defined</span> by those who have historically controlled access to it—we claim the authority to determine what constitutes the exceptional.</p>
+
+                    <p>The idea that <span class="highlight">queerness must be sanitized</span> to be celebrated—we bring our full, complex selves to every space we enter.</p>
+                </div>
+
+                <div class="manifesto-section">
+                    <h2>We Promise</h2>
+
+                    <p>To create a publication that <span class="highlight">honors complexity</span>—recognizing that queer experiences are not monolithic but magnificently diverse.</p>
+
+                    <p>To maintain <span class="highlight">uncompromising standards</span> in content, design, and perspective—excellence is our baseline, not our ceiling.</p>
+
+                    <p>To <span class="highlight">collaborate across boundaries</span>—between humans and AI, between disciplines and identities, between what has been and what could be.</p>
+
+                    <p>To <span class="highlight">celebrate without sanitizing</span>—presenting queer luxury in all its glorious complexity, contradiction, and power.</p>
+                </div>
+
+                <div class="manifesto-section">
+                    <p>Our blue lips are both invitation and challenge. They invite those who seek a more expansive vision of luxury to join us in this exploration. They challenge those who would reduce queerness to a marketing category to recognize the transformative power of our perspectives.</p>
+
+                    <p>In 2025 and beyond, <span class="gold-text">LUXE</span><span class="highlight">QUEER</span> will be more than a magazine—it will be a declaration that the future of luxury is not found in exclusion but in the extraordinary possibilities that emerge when we honor the full spectrum of human experience and expression.</p>
+
+                    <p>We wear our blue lips proudly. Join us.</p>
+                </div>
+
+                <div class="signature">
+                    The Editors<br>
+                    <span class="gold-text">LUXE</span><span class="highlight">QUEER</span> Magazine
+                </div>
+
+                <a href="luxe-queer-prelaunch.html" class="cta-button">Return to Main Page</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p class="copyright">&copy; 2024 Luxe Queer Magazine. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

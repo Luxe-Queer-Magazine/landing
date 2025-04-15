@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Queer Magazine | Coming 2025</title>
+    <style>
+        :root {
+            --primary-color: #0000ff;
+            --secondary-color: #800020; /* Deep wine red */
+            --accent-color: #00B2A9; /* Verdigris */
+            --gold: #D4AF37; /* Burnished gold */
+            --lavender: #E6E6FA; /* Soft lavender */
+            --black: #121212; /* Matte black */
+            --text-color: #ffffff;
+            --background-color: #1a1a1a;
+            --section-bg-color: #121212;
+            --font-didot: 'Didot', 'Bodoni MT', 'Didot LT STD', 'Book Antiqua', Georgia, serif;
+            --font-garamond: 'EB Garamond', 'Garamond', Georgia, 'Times New Roman', serif;
+            --font-futura: 'Futura', 'Futura PT', 'Avenir', 'Century Gothic', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-garamond);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 40px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0, 0, 255, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .logo {
+            font-family: var(--font-didot);
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin: 0;
+            line-height: 1;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 0, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.2);
+        }
+
+        .logo span.luxe {
+            color: var(--primary-color);
+            text-shadow: 0 0 10px rgba(0, 0, 255, 0.7), 0 0 20px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.3);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(0, 0, 255, 0.7), 0 0 20px rgba(0, 0, 255, 0.5), 0 0 30px rgba(0, 0, 255, 0.3);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(0, 0, 255, 0.9), 0 0 25px rgba(0, 0, 255, 0.7), 0 0 35px rgba(0, 0, 255, 0.5);
+            }
+        }
+
+        .logo span.queer {
+            color: var(--gold);
+        }
+
+        .tagline {
+            font-family: var(--font-futura);
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-top: 10px;
+            color: var(--lavender);
+            font-weight: 300;
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%), url('https://source.unsplash.com/random/1920x1080/?luxury-fashion') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 0, 255, 0.2) 0%, rgba(0, 0, 0, 0.8) 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: var(--font-didot);
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-family: var(--font-garamond);
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 0;
+            text-decoration: none;
+            font-family: var(--font-futura);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 10px;
+        }
+
+        .cta-button.gold {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .cta-button.outline {
+            background-color: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .cta-button.wine {
+            background-color: var(--secondary-color);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--font-didot);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color), var(--accent-color));
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--section-bg-color);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 255, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .feature-title {
+            font-family: var(--font-futura);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .preview-card {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .preview-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .preview-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .preview-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            transition: transform 0.3s ease;
+        }
+
+        .preview-card:hover .preview-info {
+            transform: translateY(-10px);
+        }
+
+        .preview-title {
+            font-family: var(--font-didot);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .preview-category {
+            font-family: var(--font-futura);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0;
+        }
+
+        .countdown-item {
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-family: var(--font-didot);
+            font-size: 3rem;
+            color: var(--gold);
+        }
+
+        .countdown-label {
+            font-family: var(--font-futura);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            color: var(--lavender);
+        }
+
+        .subscription-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background-color: var(--section-bg-color);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: var(--font-futura);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            color: var(--lavender);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-family: var(--font-garamond);
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--gold);
+            color: var(--black);
+            border: none;
+            font-family: var(--font-futura);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .testimonials {
+            background-color: var(--section-bg-color);
+            padding: 100px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-family: var(--font-garamond);
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 5rem;
+            position: absolute;
+            top: -50px;
+            left: -20px;
+            color: rgba(0, 0, 255, 0.1);
+            z-index: -1;
+            font-family: var(--font-didot);
+        }
+
+        .testimonial-author {
+            font-family: var(--font-futura);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+
+        .testimonial-role {
+            font-family: var(--font-garamond);
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--lavender);
+        }
+
+        footer {
+            background-color: #050510;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            font-family: var(--font-didot);
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-family: var(--font-garamond);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: var(--font-garamond);
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .countdown-item {
+                margin: 0 10px;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><span class="luxe">LUXE</span><span class="queer">QUEER</span></h1>
+            <p class="tagline">Luxury Redefined • Coming 2025</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Future of Luxury Through a Queer Lens</h1>
+            <p>A premium lifestyle magazine celebrating queer excellence, creativity, and influence in fashion, art, culture, travel, technology, and luxury.</p>
+            <div>
+                <a href="#subscribe" class="cta-button gold">Join the Waitlist</a>
+                <a href="#preview" class="cta-button outline">Preview Content</a>
+                <a href="blue-lipstick-manifesto.html" class="cta-button wine">Read Our Manifesto</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Redefining Luxury</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">✦</div>
+                    <h3 class="feature-title">Premium Publication</h3>
+                    <p>Six meticulously crafted issues per year in both print and digital formats, featuring sophisticated design and exceptional content.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✦</div>
+                    <h3 class="feature-title">Queer Perspective</h3>
+                    <p>Content that celebrates how queer viewpoints are reshaping luxury paradigms across fashion, art, travel, and technology.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✦</div>
+                    <h3 class="feature-title">Innovative Approach</h3>
+                    <p>Pioneering collaboration between human editors and specialized AI agents to create forward-thinking content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="preview" class="section">
+        <div class="container">
+            <h2 class="section-title">Content Preview</h2>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <img src="https://source.unsplash.com/random/600x800/?quantum-computing" alt="Quantum Computing">
+                    <div class="preview-info">
+                        <p class="preview-category">Technology</p>
+                        <h3 class="preview-title">Quantum Computing: The Next Frontier for Queer Innovation</h3>
+                    </div>
+                </div>
+                <div class="preview-card">
+                    <img src="https://source.unsplash.com/random/600x800/?digital-art" alt="Digital Art">
+                    <div class="preview-info">
+                        <p class="preview-category">Art</p>
+                        <h3 class="preview-title">Digital Canvas: The Evolution of Queer Art in Virtual Spaces</h3>
+                    </div>
+                </div>
+                <div class="preview-card">
+                    <img src="https://source.unsplash.com/random/600x800/?luxury-fashion" alt="Luxury Fashion">
+                    <div class="preview-info">
+                        <p class="preview-category">Fashion</p>
+                        <h3 class="preview-title">Wearable Intelligence: Fashion's Cognitive Revolution</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Launching in</h2>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">365</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">24</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">60</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">60</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Early Impressions</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p class="testimonial-text">Luxe Queer represents the future of luxury publishing—sophisticated, boundary-pushing, and unapologetically queer. It's exactly what the industry has been missing.</p>
+                    <p class="testimonial-author">Alexandra Chen</p>
+                    <p class="testimonial-role">Fashion Director, Vogue International</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="subscribe" class="section">
+        <div class="container">
+            <h2 class="section-title">Join the Waitlist</h2>
+            <div class="subscription-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">Primary Interest</label>
+                        <select id="interest" name="interest">
+                            <option value="fashion">Fashion</option>
+                            <option value="art">Art</option>
+                            <option value="culture">Culture</option>
+                            <option value="travel">Travel</option>
+                            <option value="technology">Technology</option>
+                            <option value="luxury">Luxury</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="involvement">I'm interested in:</label>
+                        <select id="involvement" name="involvement">
+                            <option value="subscribing">Subscribing to the magazine</option>
+                            <option value="contributing">Contributing content</option>
+                            <option value="advertising">Advertising opportunities</option>
+                            <option value="partnership">Brand partnership</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="form-submit">Secure My Place</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Luxe Queer</h3>
+                    <p>A premium lifestyle magazine celebrating queer excellence in luxury spaces. Launching 2025.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">FB</a>
+                        <a href="#" class="social-icon">IG</a>
+                        <a href="#" class="social-icon">TW</a>
+                        <a href="#" class="social-icon">LI</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Sections</h3>
+                    <ul>
+                        <li><a href="#">Fashion</a></li>
+                        <li><a href="#">Art</a></li>
+                        <li><a href="#">Culture</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Luxury</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Information</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Editorial Team</a></li>
+                        <li><a href="#">Contribute</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Luxe Queer Magazine. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple countdown timer
+        function updateCountdown() {
+            const launchDate = new Date("January 1, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Form submission (prevent default for demo)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for joining the Luxe Queer waitlist! We\'ll be in touch soon with exclusive updates.');
+        });
+    </script>
+</body>
+</html>
