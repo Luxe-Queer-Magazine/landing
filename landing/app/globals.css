@@ -1,0 +1,35 @@
+:root {
+  --color-wine-red: #7D2027;
+  --color-midnight-blue: #1A2C42;
+  --color-gold: #D4AF37;
+  --color-black: #121212;
+  --color-white: #FFFFFF;
+  --color-light-gray: #f8f8f8;
+  --color-lipstick-blue: #1A3A8F;
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--font-body);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}

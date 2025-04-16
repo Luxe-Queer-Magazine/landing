@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "static/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/static/index.html" },
+    { "src": "/luxe-queer-prelaunch.html", "dest": "/static/luxe-queer-prelaunch.html" },
+    { "src": "/blue-lipstick-manifesto.html", "dest": "/static/blue-lipstick-manifesto.html" },
+    { "src": "/main.html", "dest": "/static/main.html" },
+    { "src": "/public/(.*)", "dest": "/static/public/$1" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/static/$1" }
+  ]
+}
