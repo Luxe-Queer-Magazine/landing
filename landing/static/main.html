@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Queer - Luxury Lifestyle for the LGBTQ+ Community</title>
+    <style>
+        :root {
+            --primary-color: #0000ff;
+            --secondary-color: #000066;
+            --accent-color: #00ccff;
+            --text-color: #ffffff;
+            --background-color: #000000;
+            --section-bg-color: #0a0a1a;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 255, 0.2);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%), url('https://source.unsplash.com/random/1920x1080/?luxury-travel') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 0, 255, 0.2) 0%, rgba(0, 0, 0, 0.8) 70%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.5);
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.7);
+        }
+
+        .section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-color), var(--primary-color), var(--accent-color));
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--section-bg-color);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .destination-card {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 400px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: scale(1.03);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .destination-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover .destination-info {
+            transform: translateY(-10px);
+        }
+
+        .destination-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .destination-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .testimonials {
+            background-color: var(--section-bg-color);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 5rem;
+            position: absolute;
+            top: -50px;
+            left: -20px;
+            color: rgba(0, 0, 255, 0.1);
+            z-index: -1;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        footer {
+            background-color: #050510;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 255, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 10px 15px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Luxe<span>Queer</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#lifestyle">Lifestyle</a></li>
+                    <li><a href="#travel">Travel</a></li>
+                    <li><a href="#fashion">Fashion</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#magazine">Magazine</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Luxury Lifestyle for the LGBTQ+ Community</h1>
+            <p>Experience a world of exclusive luxury curated specifically for the queer community. From high-end travel and fashion to elite events and cultural experiences — live with pride, comfort, and uncompromising style.</p>
+            <a href="#lifestyle" class="cta-button">Explore Luxe Queer</a>
+        </div>
+    </section>
+
+    <section id="lifestyle" class="section">
+        <h2 class="section-title">Luxe Queer Lifestyle</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">✓</div>
+                <h3 class="feature-title">Curated for You</h3>
+                <p>Every aspect of the Luxe Queer experience is meticulously curated to reflect the sophistication, diversity, and unique perspective of our community.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">★</div>
+                <h3 class="feature-title">Uncompromising Quality</h3>
+                <p>From our exclusive events to our premium content and partnerships, we maintain the highest standards in everything we offer.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3 class="feature-title">Community First</h3>
+                <p>We create safe, affirming spaces that celebrate queer identity while providing access to luxury experiences that understand and honor our community.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="travel" class="section">
+        <h2 class="section-title">Luxury Travel</h2>
+        <div class="destinations">
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?barcelona" alt="Barcelona">
+                <div class="destination-info">
+                    <h3 class="destination-title">Barcelona, Spain</h3>
+                    <p class="destination-desc">Experience the vibrant culture, stunning architecture, and inclusive atmosphere of this Mediterranean gem.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?mykonos" alt="Mykonos">
+                <div class="destination-info">
+                    <h3 class="destination-title">Mykonos, Greece</h3>
+                    <p class="destination-desc">Enjoy crystal-clear waters, white-washed buildings, and legendary LGBTQ+ nightlife on this iconic island.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?tokyo" alt="Tokyo">
+                <div class="destination-info">
+                    <h3 class="destination-title">Tokyo, Japan</h3>
+                    <p class="destination-desc">Discover the perfect blend of tradition and innovation in one of the world's most fascinating cities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fashion" class="section">
+        <h2 class="section-title">Fashion & Style</h2>
+        <div class="destinations">
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?fashion" alt="Luxury Fashion">
+                <div class="destination-info">
+                    <h3 class="destination-title">Seasonal Collections</h3>
+                    <p class="destination-desc">Explore curated fashion collections that celebrate queer expression and uncompromising style.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?runway" alt="Fashion Runway">
+                <div class="destination-info">
+                    <h3 class="destination-title">Exclusive Showcases</h3>
+                    <p class="destination-desc">Get front-row access to fashion events featuring LGBTQ+ designers and inclusive brands.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?jewelry" alt="Luxury Accessories">
+                <div class="destination-info">
+                    <h3 class="destination-title">Luxury Accessories</h3>
+                    <p class="destination-desc">Discover premium accessories that complement your personal style and make a statement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="section">
+        <h2 class="section-title">Elite Events</h2>
+        <div class="destinations">
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?gala" alt="Luxury Gala">
+                <div class="destination-info">
+                    <h3 class="destination-title">Annual Gala</h3>
+                    <p class="destination-desc">Join our signature celebration of queer excellence, featuring performances, awards, and unforgettable experiences.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?cocktail" alt="Cocktail Party">
+                <div class="destination-info">
+                    <h3 class="destination-title">Cocktail Socials</h3>
+                    <p class="destination-desc">Network with like-minded individuals at our exclusive cocktail events in stunning venues worldwide.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?retreat" alt="Luxury Retreat">
+                <div class="destination-info">
+                    <h3 class="destination-title">Wellness Retreats</h3>
+                    <p class="destination-desc">Rejuvenate your mind and body at our carefully curated wellness experiences in breathtaking locations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="magazine" class="section">
+        <h2 class="section-title">Luxe Queer Magazine</h2>
+        <div class="destinations">
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?magazine" alt="Magazine">
+                <div class="destination-info">
+                    <h3 class="destination-title">Latest Issue</h3>
+                    <p class="destination-desc">Explore our current edition featuring exclusive interviews, style guides, and cultural insights.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?editorial" alt="Editorial">
+                <div class="destination-info">
+                    <h3 class="destination-title">Editorial Features</h3>
+                    <p class="destination-desc">Dive into thought-provoking articles and stunning photo essays that celebrate queer excellence.</p>
+                </div>
+            </div>
+            <div class="destination-card">
+                <img src="https://source.unsplash.com/random/600x800/?subscription" alt="Subscription">
+                <div class="destination-info">
+                    <h3 class="destination-title">Premium Subscription</h3>
+                    <p class="destination-desc">Subscribe for exclusive content, early access to events, and special offers from our luxury partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="testimonial-container">
+            <h2 class="section-title">What Our Community Says</h2>
+            <div class="testimonial">
+                <p class="testimonial-text">Luxe Queer has transformed how I experience luxury as a queer person. From their events to their magazine, everything feels like it was created specifically for me.</p>
+                <p class="testimonial-author">- Alex J.</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">The attention to detail and understanding of queer culture makes Luxe Queer stand out. I've found a community that appreciates luxury without compromising authenticity.</p>
+                <p class="testimonial-author">- Taylor R.</p>
+            </div>
+            <div class="testimonial">
+                <p class="testimonial-text">Their fashion recommendations and travel guides have completely elevated my lifestyle. I finally feel represented in the luxury space.</p>
+                <p class="testimonial-author">- Morgan L.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>LuxeQueer</h3>
+                <p>Luxury lifestyle experiences designed for the LGBTQ+ community. Live with pride, comfort, and uncompromising style.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">TW</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#lifestyle">Lifestyle</a></li>
+                    <li><a href="#travel">Travel</a></li>
+                    <li><a href="#fashion">Fashion</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#magazine">Magazine</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Our Team</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Partners</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:info@luxequeer.com">info@luxequeer.com</a></li>
+                    <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                    <li>123 Rainbow Road, Suite 100<br>San Francisco, CA 94103</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 LuxeQueer Travel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Header scroll effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+                    header.style.boxShadow = '0 5px 20px rgba(0, 0, 255, 0.2)';
+                } else {
+                    header.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                    header.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

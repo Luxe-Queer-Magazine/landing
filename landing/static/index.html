@@ -3,284 +3,443 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUXE QUEER | Enter</title>
+    <title>LUXE QUEER | Coming Soon</title>
     <style>
         :root {
-            --primary-color: #0000ff;
-            --secondary-color: #800020; /* Deep wine red */
-            --accent-color: #00B2A9; /* Verdigris */
-            --gold: #D4AF37; /* Burnished gold */
-            --lavender: #E6E6FA; /* Soft lavender */
-            --black: #121212; /* Matte black */
-            --text-color: #ffffff;
-            --background-color: #1a1a1a;
-            --section-bg-color: #121212;
-            --font-didot: 'Didot', 'Bodoni MT', 'Didot LT STD', 'Book Antiqua', Georgia, serif;
-            --font-garamond: 'EB Garamond', 'Garamond', Georgia, 'Times New Roman', serif;
-            --font-futura: 'Futura', 'Futura PT', 'Avenir', 'Century Gothic', sans-serif;
+            --color-wine-red: #7D2027;
+            --color-midnight-blue: #1A2C42;
+            --color-gold: #D4AF37;
+            --color-black: #121212;
+            --color-white: #FFFFFF;
+            --color-light-gray: #f8f8f8;
+            --color-lipstick-blue: #1A3A8F; /* Signature Blue Lipstick Color */
+            --font-heading: 'Cormorant Garamond', serif;
+            --font-body: 'Montserrat', sans-serif;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
-
-        body, html {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
             height: 100%;
+            font-family: var(--font-body);
+            background-color: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Lava Lamp Effect --- */
+        .lava-lamp {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            background-color: #000;
-            color: #fff;
-            font-family: var(--font-didot);
+            height: 100%;
             overflow: hidden;
+            z-index: -1; /* Ensure it stays behind other content */
         }
 
-        .splash-container {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+        .lava-lamp div {
+            position: absolute;
+            bottom: 0;
             width: 100%;
+            height: 20%;
+            background: linear-gradient(to bottom, rgba(26, 58, 130, 0.8), rgba(18, 18, 18, 0.8));
+            filter: blur(50px);
+            animation: lava-flow 10s infinite linear;
         }
 
-        .logo-container {
-            position: relative;
-            width: 80%;
-            max-width: 600px;
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 2s ease-out, transform 2s ease-out;
+        .lava-lamp div:nth-child(2) {
+            animation-delay: 3s;
+            animation-duration: 12s;
         }
 
-        .logo-container::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(0, 0, 255, 0.4) 0%, rgba(0, 0, 255, 0.1) 40%, transparent 70%);
-            border-radius: 50%;
-            filter: blur(20px);
-            z-index: -1;
-            animation: background-pulse 4s infinite alternate;
+        .lava-lamp div:nth-child(3) {
+            animation-delay: 6s;
+            animation-duration: 14s;
         }
 
-        @keyframes background-pulse {
-            from {
-                width: 200px;
-                height: 200px;
-                opacity: 0.7;
-            }
-            to {
-                width: 240px;
-                height: 240px;
-                opacity: 0.9;
-            }
+        @keyframes lava-flow {
+            0% { transform: translateY(100%); }
+            50% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
         }
 
-        .logo-container.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .logo {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .logo h1 {
-            font-size: 4rem;
-            margin: 0;
-            line-height: 1;
-            letter-spacing: 5px;
-        }
-
-        .logo span.luxe {
-            color: #4040ff;
-            text-shadow:
-                0 0 10px rgba(0, 0, 255, 0.9),
-                0 0 20px rgba(0, 0, 255, 0.8),
-                0 0 30px rgba(0, 0, 255, 0.7),
-                0 0 40px rgba(0, 0, 255, 0.6),
-                0 0 50px rgba(0, 0, 255, 0.5),
-                0 0 60px rgba(0, 0, 255, 0.4);
-            animation: glow 1.5s infinite alternate;
-            position: relative;
-            z-index: 2;
-            font-weight: 800;
-        }
-
-        .logo span.luxe::before {
-            content: 'LUXE';
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: transparent;
-            z-index: -1;
-            filter: blur(8px);
-            opacity: 0.8;
-            animation: pulse-blur 3s infinite alternate;
-        }
-
-        .logo span.queer {
-            color: var(--gold);
-        }
-
-        .enter-button {
-            position: relative;
-            padding: 12px 30px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease-out;
-            transition-delay: 1s;
-            font-family: var(--font-futura);
-        }
-
-        .enter-button.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .enter-button:hover {
-            background-color: #0000cc;
-            box-shadow: 0 0 20px rgba(0, 0, 255, 0.8);
-        }
-
-        .enter-button::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 50px;
-            background-color: rgba(0, 0, 255, 0.4);
-            z-index: -1;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-            70% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0;
-            }
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow:
-                    0 0 10px rgba(0, 0, 255, 0.9),
-                    0 0 20px rgba(0, 0, 255, 0.8),
-                    0 0 30px rgba(0, 0, 255, 0.7),
-                    0 0 40px rgba(0, 0, 255, 0.6);
-            }
-            to {
-                text-shadow:
-                    0 0 15px rgba(0, 0, 255, 1.0),
-                    0 0 25px rgba(0, 0, 255, 0.9),
-                    0 0 35px rgba(0, 0, 255, 0.8),
-                    0 0 45px rgba(0, 0, 255, 0.7),
-                    0 0 55px rgba(0, 0, 255, 0.6),
-                    0 0 65px rgba(0, 0, 255, 0.5);
-            }
-        }
-
-        @keyframes pulse-blur {
-            from {
-                filter: blur(8px);
-                opacity: 0.6;
-                transform: scale(1.01);
-            }
-            to {
-                filter: blur(12px);
-                opacity: 0.9;
-                transform: scale(1.03);
-            }
-        }
-
-        /* Overlay for transition effect */
-        .overlay {
+        /* --- Splash Screen --- */
+        #splash-screen {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
-            opacity: 0;
-            z-index: 100;
-            pointer-events: none;
-            transition: opacity 1s ease;
+            background-color: rgba(18, 18, 18, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
 
-        /* Blue lips image styles */
-        .blue-lips {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            filter: drop-shadow(0 0 30px rgba(0, 0, 255, 0.7));
-            object-fit: contain;
-            display: block;
+        .splash-logo {
+            max-width: 200px;
+            opacity: 0;
+            animation: fadeInLogo 1.5s ease-in forwards;
+        }
+
+        .splash-enter-button {
+            background: none;
+            border: 1px solid var(--color-gold);
+            color: var(--color-gold);
+            padding: 12px 30px;
+            font-family: var(--font-body);
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInButton 1.5s ease-in forwards;
+            animation-delay: 2s;
+        }
+
+        .splash-enter-button:hover {
+            background-color: var(--color-gold);
+            color: var(--color-black);
+        }
+
+        @keyframes fadeInLogo {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeInButton {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Main Content --- */
+        .container {
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(18, 18, 18, 0.8);
+            opacity: 0;
+            animation: fadeInContent 1s ease-in forwards;
+            animation-delay: 1s; /* Start after splash screen fades */
+        }
+
+        .hero-logo {
+            max-width: 150px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            color: var(--color-white);
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+        }
+
+        .hero .coming-soon {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--color-gold);
+            margin-bottom: 40px;
+        }
+
+        .section {
+            padding: 80px 0;
+            opacity: 0;
+            animation: fadeInContent 1s ease-in forwards;
+        }
+        .section.light {
+             background-color: var(--color-light-gray);
+             color: var(--color-black);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+        .section-title.gold {
+            color: var(--color-gold);
+        }
+
+        .intro-text {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+            line-height: 1.8;
+        }
+
+        .lipstick-section {
+            background-color: var(--color-midnight-blue); /* Use a distinct BG */
+            text-align: center;
+        }
+
+        .lipstick-icon {
+            font-size: 3rem; /* Placeholder for icon */
+            color: var(--color-lipstick-blue);
+            margin-bottom: 20px;
+            /* Replace with actual SVG or FontAwesome icon later */
+            display: inline-block; /* Example styling */
+            width: 50px; height: 50px; background: var(--color-lipstick-blue); border-radius: 5px;
+        }
+
+        .lipstick-title {
+             font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--color-white);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        .lipstick-title span { /* Style the words 'Blue Lipstick' */
+            color: var(--color-lipstick-blue);
+            font-style: italic;
+        }
+
+        .lipstick-text {
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .waitlist-section {
+            text-align: center;
+            background: var(--color-black);
+        }
+
+        .waitlist-section .section-title {
+            color: var(--color-gold);
+        }
+
+        .waitlist-text {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .waitlist-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .waitlist-form input[type="email"] {
+            flex-grow: 1;
+            padding: 15px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            border: 1px solid var(--color-gold);
+            background-color: var(--color-black);
+            color: var(--color-white);
+        }
+        .waitlist-form input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .waitlist-form button {
+            padding: 15px 30px;
+            background-color: var(--color-gold);
+            color: var(--color-black);
+            border: none;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .waitlist-form button:hover {
+            background-color: darken(var(--color-gold), 10%);
+        }
+
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background-color: var(--color-black);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-logo {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--color-gold);
+        }
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Fade in animation for main content */
+        @keyframes fadeInContent {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .main-content {
+            opacity: 0; /* Start hidden until splash is dismissed */
+        }
+        .main-content.visible {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .lipstick-title {
+                font-size: 2rem;
+            }
+            .waitlist-form {
+                flex-direction: column;
+            }
+            .waitlist-form button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+             .hero .coming-soon {
+                font-size: 1.5rem;
+             }
+            .section-title {
+                font-size: 1.8rem;
+            }
+             .lipstick-title {
+                font-size: 1.7rem;
+            }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="splash-container">
-        <div class="logo-container" id="logoContainer">
-            <!-- Blue Lips Image -->
-            <img src="/public/blue-lips.jpg" alt="Blue Lips" class="blue-lips">
-            <div class="logo">
-                <h1><span class="luxe">LUXE</span><span class="queer">QUEER</span></h1>
-            </div>
-        </div>
-
-        <button type="button" class="enter-button" id="enterButton">Click to Enter</button>
+    <!-- Lava Lamp Effect -->
+    <div class="lava-lamp">
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 
-    <div class="overlay" id="transition-overlay"></div>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <img src="public/blue-lips.jpg" alt="Luxe Queer Logo" class="splash-logo">
+        <button id="enter-button" class="splash-enter-button">Enter the World of Luxe Queer</button>
+    </div>
+
+    <!-- Main Content (Initially Hidden) -->
+    <div class="main-content">
+        <section class="hero">
+             <img src="public/blue-lips.jpg" alt="Luxe Queer Logo" class="hero-logo">
+            <h1>Luxury is About to Be Redefined.</h1>
+            <p class="subtitle">Prepare for an unapologetic exploration of fashion, art, culture, and opulence—through a gloriously queer lens.</p>
+            <p class="coming-soon">The Standard is Changing. Soon.</p>
+        </section>
+
+        <section class="section intro">
+            <div class="container">
+                 <h2 class="section-title">Beyond the Velvet Rope</h2>
+                 <p class="intro-text">
+                    Luxe Queer is not merely a magazine; it's a declaration. We occupy the intersection where high fashion kisses queer liberation, where artistry challenges norms, and where technology serves identity. We are crafting a space for the discerning, the bold, the visionary—those who understand that true luxury is rooted in authentic expression. Forget what you thought you knew.
+                 </p>
+            </div>
+        </section>
+
+        <section class="section lipstick-section">
+            <div class="container">
+                <!-- Replace div with actual icon -->
+                <div class="lipstick-icon" aria-hidden="true"></div>
+                 <h2 class="lipstick-title">Introducing: The <span>Blue Lipstick</span> Edit</h2>
+                 <p class="lipstick-text">
+                     Every revolution needs its signature. Ours is sharp, witty, and unapologetically bold. The Blue Lipstick Edit delivers potent takes on culture, style, and the state of luxury—served with the authority and flair only Luxe Queer can provide. Prepare for commentary that doesn't just observe, it commands.
+                 </p>
+            </div>
+        </section>
+
+        <section class="section waitlist-section">
+            <div class="container">
+                <h2 class="section-title gold">Join the Vanguard</h2>
+                <p class="waitlist-text">Be among the first to experience Luxe Queer. Sign up for exclusive updates and early access.</p>
+                <form class="waitlist-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Claim Your Invitation</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <img src="public/blue-lips.jpg" alt="Luxe Queer Logo" class="footer-logo">
+            <div class="footer-links">
+                <a href="luxe-queer-prelaunch.html">Pre-Launch</a>
+                <a href="blue-lipstick-manifesto.html">Blue Lipstick Manifesto</a>
+                <a href="main.html">Main</a>
+            </div>
+            <p class="copyright">&copy; 2025 Luxe Queer Magazine. All rights reserved.</p>
+        </footer>
+    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Show logo with delay
-            setTimeout(function() {
-                document.getElementById('logoContainer').classList.add('visible');
-            }, 500);
-
-            // Show enter button with delay
-            setTimeout(function() {
-                document.getElementById('enterButton').classList.add('visible');
-            }, 2000);
-
-            // Handle click to enter
-            document.getElementById('enterButton').addEventListener('click', function() {
-                // Fade out with overlay
-                document.getElementById('transition-overlay').style.opacity = '1';
-
-                // Navigate to the pre-launch page after transition
-                setTimeout(function() {
-                    window.location.href = 'luxe-queer-prelaunch.html';
-                }, 1000);
-            });
+        document.getElementById('enter-button').addEventListener('click', function() {
+            document.getElementById('splash-screen').style.display = 'none';
+            document.querySelector('.main-content').classList.add('visible');
         });
     </script>
 </body>
