@@ -1,20 +1,20 @@
-:root {
+/* Define variables at the top level for reference */
+.variables {
+  /* These variables won't be used directly but serve as reference */
   --color-wine-red: #7D2027;
   --color-midnight-blue: #1A2C42;
   --color-gold: #D4AF37;
   --color-black: #121212;
   --color-white: #FFFFFF;
   --color-light-gray: #f8f8f8;
-  --color-lipstick-blue: #1A3A8F; /* Signature Blue Lipstick Color */
-  --font-heading: 'Cormorant Garamond', serif;
-  --font-body: 'Montserrat', sans-serif;
+  --color-lipstick-blue: #1A3A8F;
 }
 
 .main {
   min-height: 100vh;
   position: relative;
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: #121212; /* var(--color-black) */
+  color: #FFFFFF; /* var(--color-white) */
   overflow-x: hidden;
 }
 
@@ -82,10 +82,10 @@
 
 .splashEnterButton {
   background: none;
-  border: 1px solid var(--color-gold);
-  color: var(--color-gold);
+  border: 1px solid #D4AF37; /* var(--color-gold) */
+  color: #D4AF37; /* var(--color-gold) */
   padding: 12px 30px;
-  font-family: var(--font-body);
+  font-family: 'Montserrat', sans-serif; /* var(--font-body) */
   font-weight: bold;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -97,8 +97,8 @@
 }
 
 .splashEnterButton:hover {
-  background-color: var(--color-gold);
-  color: var(--color-black);
+  background-color: #D4AF37; /* var(--color-gold) */
+  color: #121212; /* var(--color-black) */
 }
 
 @keyframes fadeInLogo {
@@ -138,13 +138,13 @@
 }
 
 .hero h1 {
-  font-family: var(--font-heading);
+  font-family: 'Cormorant Garamond', serif; /* var(--font-heading) */
   font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 15px;
   line-height: 1.2;
   letter-spacing: 1px;
-  color: var(--color-white);
+  color: #FFFFFF; /* var(--color-white) */
 }
 
 .subtitle {
@@ -156,10 +156,10 @@
 }
 
 .comingSoon {
-  font-family: var(--font-heading);
+  font-family: 'Cormorant Garamond', serif; /* var(--font-heading) */
   font-size: 2rem;
   font-style: italic;
-  color: var(--color-gold);
+  color: #D4AF37; /* var(--color-gold) */
   margin-bottom: 40px;
 }
 
@@ -170,21 +170,21 @@
   animation: fadeInContent 1s ease-in forwards;
 }
 
-.section.light {
-  background-color: var(--color-light-gray);
-  color: var(--color-black);
+.sectionLight {
+  background-color: #f8f8f8; /* var(--color-light-gray) */
+  color: #121212; /* var(--color-black) */
 }
 
 .sectionTitle {
-  font-family: var(--font-heading);
+  font-family: 'Cormorant Garamond', serif; /* var(--font-heading) */
   font-size: 2.8rem;
   text-align: center;
   margin-bottom: 50px;
   font-weight: 700;
 }
 
-.sectionTitle.gold {
-  color: var(--color-gold);
+.goldText {
+  color: #D4AF37; /* var(--color-gold) */
 }
 
 .introText {
@@ -196,31 +196,31 @@
 }
 
 .lipstickSection {
-  background-color: var(--color-midnight-blue);
+  background-color: #1A2C42; /* var(--color-midnight-blue) */
   text-align: center;
 }
 
 .lipstickIcon {
   font-size: 3rem;
-  color: var(--color-lipstick-blue);
+  color: #1A3A8F; /* var(--color-lipstick-blue) */
   margin-bottom: 20px;
   display: inline-block;
   width: 50px;
   height: 50px;
-  background: var(--color-lipstick-blue);
+  background: #1A3A8F; /* var(--color-lipstick-blue) */
   border-radius: 5px;
 }
 
 .lipstickTitle {
-  font-family: var(--font-heading);
+  font-family: 'Cormorant Garamond', serif; /* var(--font-heading) */
   font-size: 2.5rem;
-  color: var(--color-white);
+  color: #FFFFFF; /* var(--color-white) */
   margin-bottom: 20px;
   font-weight: 700;
 }
 
 .lipstickTitle span {
-  color: var(--color-lipstick-blue);
+  color: #1A3A8F; /* var(--color-lipstick-blue) */
   font-style: italic;
 }
 
@@ -233,7 +233,7 @@
 
 .waitlistSection {
   text-align: center;
-  background: var(--color-black);
+  background: #121212; /* var(--color-black) */
 }
 
 .waitlistText {
@@ -252,11 +252,11 @@
 .waitlistForm input[type="email"] {
   flex-grow: 1;
   padding: 15px;
-  font-family: var(--font-body);
+  font-family: 'Montserrat', sans-serif; /* var(--font-body) */
   font-size: 1rem;
-  border: 1px solid var(--color-gold);
-  background-color: var(--color-black);
-  color: var(--color-white);
+  border: 1px solid #D4AF37; /* var(--color-gold) */
+  background-color: #121212; /* var(--color-black) */
+  color: #FFFFFF; /* var(--color-white) */
 }
 
 .waitlistForm input[type="email"]::placeholder {
@@ -265,10 +265,10 @@
 
 .waitlistForm button {
   padding: 15px 30px;
-  background-color: var(--color-gold);
-  color: var(--color-black);
+  background-color: #D4AF37; /* var(--color-gold) */
+  color: #121212; /* var(--color-black) */
   border: none;
-  font-family: var(--font-body);
+  font-family: 'Montserrat', sans-serif; /* var(--font-body) */
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
@@ -282,7 +282,7 @@
 .footer {
   padding: 40px 20px;
   text-align: center;
-  background-color: var(--color-black);
+  background-color: #121212; /* var(--color-black) */
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   position: relative;
   z-index: 1;
@@ -297,7 +297,7 @@
 }
 
 .footerLinks a {
-  color: var(--color-white);
+  color: #FFFFFF; /* var(--color-white) */
   text-decoration: none;
   margin: 0 15px;
   font-size: 0.9rem;
@@ -305,7 +305,7 @@
 }
 
 .footerLinks a:hover {
-  color: var(--color-gold);
+  color: #D4AF37; /* var(--color-gold) */
 }
 
 .copyright {

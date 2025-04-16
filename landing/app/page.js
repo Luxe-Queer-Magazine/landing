@@ -86,7 +86,7 @@ export default function Home() {
 
           <section className={`${styles.section} ${styles.waitlistSection}`}>
             <div className={styles.container}>
-              <h2 className={`${styles.sectionTitle} ${styles.gold}`}>Join the Vanguard</h2>
+              <h2 className={`${styles.sectionTitle} ${styles.goldText}`}>Join the Vanguard</h2>
               <p className={styles.waitlistText}>
                 Be among the first to experience Luxe Queer. Sign up for exclusive updates and early access.
               </p>
