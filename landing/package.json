@@ -1,0 +1,12 @@
+{
+  "name": "luxe-queer-magazine",
+  "version": "1.0.0",
+  "description": "Luxe Queer Magazine - Premium lifestyle magazine celebrating queer excellence",
+  "scripts": {
+    "start": "serve",
+    "build": "echo 'No build step required'"
+  },
+  "dependencies": {
+    "serve": "^14.0.0"
+  }
+}
