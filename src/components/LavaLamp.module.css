@@ -1,0 +1,242 @@
+.lavaLamp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) contrast(60);
+  background: #000;
+  z-index: -1;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.active {
+  opacity: 0.9;
+}
+
+.lavaLamp div {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
+
+.blob1 {
+  width: 500px;
+  height: 500px;
+  background: linear-gradient(45deg, #000066, #0000ff);
+  animation: float1 25s infinite ease-in-out;
+  left: 30%;
+  top: 40%;
+}
+
+.blob2 {
+  width: 450px;
+  height: 450px;
+  background: linear-gradient(45deg, #0000ff, #0033ff);
+  animation: float2 20s infinite ease-in-out;
+  left: 60%;
+  top: 50%;
+}
+
+.blob3 {
+  width: 600px;
+  height: 600px;
+  background: linear-gradient(45deg, #000099, #0000ff);
+  animation: float3 30s infinite ease-in-out;
+  left: 40%;
+  top: 60%;
+}
+
+.blob4 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(45deg, #000066, #0000cc);
+  animation: float4 22s infinite ease-in-out;
+  left: 70%;
+  top: 30%;
+}
+
+.blob5 {
+  width: 550px;
+  height: 550px;
+  background: linear-gradient(45deg, #0000cc, #0033ff);
+  animation: float5 28s infinite ease-in-out;
+  left: 20%;
+  top: 70%;
+}
+
+@keyframes float1 {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(-40%, -45%) scale(1.1) rotate(5deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(-55%, -40%) scale(0.9) rotate(10deg);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translate(-60%, -55%) scale(1.05) rotate(5deg);
+    opacity: 0.85;
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translate(-55%, -40%) scale(1.15) rotate(-5deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(-45%, -55%) scale(0.95) rotate(-10deg);
+    opacity: 0.65;
+  }
+  75% {
+    transform: translate(-40%, -45%) scale(1.1) rotate(-5deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 0.75;
+  }
+  33% {
+    transform: translate(-45%, -55%) scale(1.05) rotate(8deg);
+    opacity: 0.9;
+  }
+  66% {
+    transform: translate(-55%, -45%) scale(0.9) rotate(-8deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes float4 {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 0.7;
+  }
+  30% {
+    transform: translate(-55%, -45%) scale(1.2) rotate(-10deg);
+    opacity: 0.85;
+  }
+  60% {
+    transform: translate(-45%, -55%) scale(0.85) rotate(10deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes float5 {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    opacity: 0.8;
+  }
+  20% {
+    transform: translate(-45%, -45%) scale(1.1) rotate(5deg);
+    opacity: 0.9;
+  }
+  40% {
+    transform: translate(-55%, -50%) scale(0.9) rotate(10deg);
+    opacity: 0.7;
+  }
+  60% {
+    transform: translate(-50%, -55%) scale(1.05) rotate(15deg);
+    opacity: 0.85;
+  }
+  80% {
+    transform: translate(-45%, -50%) scale(0.95) rotate(5deg);
+    opacity: 0.75;
+  }
+}
+
+/* Animation classes for entrance effects */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:global(.animate-fade-in-down) {
+  animation: fadeInDown 1.2s ease-out forwards;
+}
+
+:global(.animate-fade-in) {
+  animation: fadeIn 1.5s ease-out forwards;
+}
+
+:global(.animate-fade-in-up) {
+  animation: fadeInUp 1.2s ease-out forwards;
+}
+
+:global(.delay-300) {
+  animation-delay: 300ms;
+}
+
+:global(.delay-500) {
+  animation-delay: 500ms;
+}
+
+:global(.delay-700) {
+  animation-delay: 700ms;
+}
+
+:global(.delay-900) {
+  animation-delay: 900ms;
+}
+
+:global(.delay-1000) {
+  animation-delay: 1000ms;
+}
+
+/* Pulse animation for the enter button */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(0, 0, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 0, 255, 0);
+  }
+}
+
+:global(.animate-pulse) {
+  animation: pulse 2s infinite;
+}
