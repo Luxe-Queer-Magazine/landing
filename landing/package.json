@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "Luxe Queer Magazine - Premium lifestyle magazine celebrating queer excellence",
   "scripts": {
-    "start": "serve",
-    "build": "echo 'No build step required'"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "serve": "^14.0.0"
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

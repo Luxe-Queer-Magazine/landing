@@ -1,0 +1,365 @@
+:root {
+  --color-wine-red: #7D2027;
+  --color-midnight-blue: #1A2C42;
+  --color-gold: #D4AF37;
+  --color-black: #121212;
+  --color-white: #FFFFFF;
+  --color-light-gray: #f8f8f8;
+  --color-lipstick-blue: #1A3A8F; /* Signature Blue Lipstick Color */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+}
+
+.main {
+  min-height: 100vh;
+  position: relative;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  overflow-x: hidden;
+}
+
+/* --- Lava Lamp Effect --- */
+.lavaLamp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; /* Ensure it stays behind other content */
+}
+
+.lavaLamp div {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(to bottom, rgba(26, 58, 130, 0.8), rgba(18, 18, 18, 0.8));
+  filter: blur(50px);
+  animation: lavaFlow 10s infinite linear;
+}
+
+.lavaLamp div:nth-child(2) {
+  animation-delay: 3s;
+  animation-duration: 12s;
+}
+
+.lavaLamp div:nth-child(3) {
+  animation-delay: 6s;
+  animation-duration: 14s;
+}
+
+@keyframes lavaFlow {
+  0% { transform: translateY(100%); }
+  50% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* --- Splash Screen --- */
+.splashScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(18, 18, 18, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.splashLogo {
+  margin-bottom: 40px;
+  animation: fadeInLogo 1.5s ease-in forwards;
+}
+
+.blueLips {
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.splashEnterButton {
+  background: none;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  padding: 12px 30px;
+  font-family: var(--font-body);
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  animation: fadeInButton 1.5s ease-in forwards;
+  animation-delay: 2s;
+}
+
+.splashEnterButton:hover {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+}
+
+@keyframes fadeInLogo {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeInButton {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Main Content --- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px;
+  background: rgba(18, 18, 18, 0.8);
+  position: relative;
+  z-index: 1;
+  animation: fadeInContent 1s ease-in forwards;
+}
+
+.heroLogo {
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: var(--color-white);
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+}
+
+.comingSoon {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--color-gold);
+  margin-bottom: 40px;
+}
+
+.section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+  animation: fadeInContent 1s ease-in forwards;
+}
+
+.section.light {
+  background-color: var(--color-light-gray);
+  color: var(--color-black);
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.sectionTitle.gold {
+  color: var(--color-gold);
+}
+
+.introText {
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  line-height: 1.8;
+}
+
+.lipstickSection {
+  background-color: var(--color-midnight-blue);
+  text-align: center;
+}
+
+.lipstickIcon {
+  font-size: 3rem;
+  color: var(--color-lipstick-blue);
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: var(--color-lipstick-blue);
+  border-radius: 5px;
+}
+
+.lipstickTitle {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--color-white);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.lipstickTitle span {
+  color: var(--color-lipstick-blue);
+  font-style: italic;
+}
+
+.lipstickText {
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+.waitlistSection {
+  text-align: center;
+  background: var(--color-black);
+}
+
+.waitlistText {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.waitlistForm {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+}
+
+.waitlistForm input[type="email"] {
+  flex-grow: 1;
+  padding: 15px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border: 1px solid var(--color-gold);
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.waitlistForm input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.waitlistForm button {
+  padding: 15px 30px;
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  border: none;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.waitlistForm button:hover {
+  background-color: #b3941f;
+}
+
+.footer {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: var(--color-black);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.footerLogo {
+  margin-bottom: 20px;
+}
+
+.footerLinks {
+  margin-bottom: 20px;
+}
+
+.footerLinks a {
+  color: var(--color-white);
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: var(--color-gold);
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Fade in animation for main content */
+@keyframes fadeInContent {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mainContent {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  .lipstickTitle {
+    font-size: 2rem;
+  }
+  .waitlistForm {
+    flex-direction: column;
+  }
+  .waitlistForm button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .comingSoon {
+    font-size: 1.5rem;
+  }
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+  .lipstickTitle {
+    font-size: 1.7rem;
+  }
+}
