@@ -41,8 +41,8 @@ export function ComingSoon() {
               <defs>
                 <linearGradient id="lipGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" stopColor="#000066" />
-                  <stop offset="50%" stopColor="#0000ff" />
-                  <stop offset="100%" stopColor="#0033ff" />
+                  <stop offset="50%" stopColor="#0066ff" />
+                  <stop offset="100%" stopColor="#0099ff" />
                 </linearGradient>
               </defs>
               <path d="M250,50 C350,50 450,100 450,150 C450,200 350,250 250,250 C150,250 50,200 50,150 C50,100 150,50 250,50 Z"
@@ -108,7 +108,7 @@ export function ComingSoon() {
           {/* Decorative blue lips in background */}
           <div className="absolute -right-12 -bottom-12 opacity-5">
             <svg width="150" height="100" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
-              <path d="M250,50 C350,50 450,100 450,150 C450,200 350,250 250,250 C150,250 50,200 50,150 C50,100 150,50 250,50 Z" fill="#0000ff" />
+              <path d="M250,50 C350,50 450,100 450,150 C450,200 350,250 250,250 C150,250 50,200 50,150 C50,100 150,50 250,50 Z" fill="#0066ff" />
             </svg>
           </div>
 

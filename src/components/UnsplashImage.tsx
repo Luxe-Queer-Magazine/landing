@@ -13,13 +13,13 @@ interface UnsplashImageProps {
   priority?: boolean;
 }
 
-export function UnsplashImage({ 
-  query, 
-  alt, 
-  width, 
-  height, 
-  className = "", 
-  priority = false 
+export function UnsplashImage({
+  query,
+  alt,
+  width,
+  height,
+  className = "",
+  priority = false
 }: UnsplashImageProps) {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -29,12 +29,20 @@ export function UnsplashImage({
     const loadImage = async () => {
       try {
         setLoading(true);
-        const url = await fetchUnsplashImage(query);
-        if (url) {
-          setImageUrl(url);
+
+        // Check if the query is a local path (starts with '/')
+        if (query.startsWith('/')) {
+          setImageUrl(query);
           setError(null);
         } else {
-          setError("Failed to load image");
+          // Fetch from Unsplash API
+          const url = await fetchUnsplashImage(query);
+          if (url) {
+            setImageUrl(url);
+            setError(null);
+          } else {
+            setError("Failed to load image");
+          }
         }
       } catch (err) {
         setError("Error loading image");
@@ -49,7 +57,7 @@ export function UnsplashImage({
 
   if (loading) {
     return (
-      <div 
+      <div
         className={`bg-gray-800 animate-pulse ${className}`}
         style={{ width, height }}
       />
@@ -58,7 +66,7 @@ export function UnsplashImage({
 
   if (error || !imageUrl) {
     return (
-      <div 
+      <div
         className={`bg-gray-900 flex items-center justify-center ${className}`}
         style={{ width, height }}
       >

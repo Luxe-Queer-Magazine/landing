@@ -19,7 +19,7 @@ const ArticlePreview: React.FC<ArticlePreviewProps> = ({ category, title, imageQ
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90"></div>
     </div>
-    
+
     <div className="absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-500 group-hover:translate-y-[-8px]">
       <span className="inline-block mb-2 text-sm font-bold uppercase tracking-wider text-[#0000ff] bg-black/50 backdrop-blur-sm px-3 py-1 rounded">
         {category}
@@ -44,7 +44,7 @@ export function ContentPreview() {
           <ArticlePreview
             category="Technology"
             title="Quantum Computing: The Next Frontier for Queer Innovation"
-            imageQuery="quantum computing futuristic blue"
+            imageQuery="/quantum-visualization.jpg"
           />
           <ArticlePreview
             category="Art"
